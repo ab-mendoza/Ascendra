@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ascendra - Sales Records</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <div class="logo">
+                <h1>Ascendra</h1>
+                <p id="welcome-message">Sales Performance Platform</p>
+            </div>
+
+            <nav>
+
+                <ul>
+
+                    <li>
+                        <a href="#">Dashboard</a>
+                    </li>
+
+                    <li class="active">
+                        <a href="#">Sales Records</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Products</a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+            <button class="logoutButton">
+                Log Out
+            </button>
+
+        </aside>
+
+
+        <!-- Main Content -->
+        <main class="content">
+
+            <header>
+
+                <h2>Sales Records</h2>
+
+                <p>
+                    Register and manage sales information.
+                </p>
+
+            </header>
+
+            <!--Start of sales panel-->
+            <section class="salesPanel">
+
+                <form action="#" method="post" id="salesForm">
+
+                    <!--Request ticket ID-->
+                    <label for="ticketID">
+                        Ticket ID
+                    </label>
+
+                    <input
+                    type="number"
+                    id="ticketId"
+                    name="ticketId"
+                    placeholder="Enter the Zendesk ticket"
+                    required>
+                    
+                    <!--Request order ID-->
+                    <label for="orderId">
+                        Order ID
+                    </label>
+                    
+                    <input
+                    type="number"
+                    id="orderId"
+                    name="orderId"
+                    min="0"
+                    step="0.01"
+                    placeholder="Enter the order ID"
+                    required>
+
+                    <!--Request initial amount-->
+                    <label for="initialAmount">
+                        Initial Amount
+                    </label>
+
+                    <input
+                    type="number"
+                    id="initialAmount"
+                    name="initialAmount"
+                    min="0"
+                    step="0.01"
+                    placeholder="Enter the initial amount"
+                    required>
+                    
+                    <!--Request final amount-->
+                    <label for="finalAmount">
+                        Final Amount
+                    </label>
+
+                    <input
+                    type="number"
+                    id="finalAmount"
+                    name="finalAmount"
+                    min="0"
+                    step="0.01"
+                    placeholder="Enter the final amount"
+                    required>
+
+                    <!--Comment box-->
+                    <label for="comment">Your Comment:</label>
+                    <textarea id="comment" name="comment" rows="5" cols="40" placeholder="Write your comment here..."></textarea>
+
+                    <!--Submit button-->
+                    <button type="submit">Submit</button>
+
+                </form>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <script src="app.js"></script>
+
+</body>
+</html>

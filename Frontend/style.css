@@ -1,0 +1,304 @@
+/*Login*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Poppins", sans-serif;
+    background-color: #f4f6f9;
+    height: 100vh;
+}
+
+.container{
+    display: flex;
+    height: 100vh;
+}
+
+.logBox{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #0B1026;
+    color: white;
+}
+
+.logBox form{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+}
+
+.logBox h1{
+    margin-bottom: 30px;
+    text-align: center;
+    color: whitesmoke;
+}
+
+label{
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="email"],
+input[type="password"]{
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #0B1026;
+}
+
+input[type="submit"]{
+    margin-top: 30px;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #4F7CFF;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+input[type="submit"]:hover{
+    background-color: #3458D6;
+}
+
+/*Welcome box*/
+
+.welcomeBox{
+    width: 100%;
+    background-image: url(galaxy.jpg);
+    background-size: cover;
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    padding: 50px;
+}
+
+.welcomeBox h1{
+    font-size: 64px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: white;
+    text-shadow: 0 0 12px rgba(79, 124, 255, 0.6);
+}
+
+.welcomeBox h2{
+    font-size: 24px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 35px;
+}
+
+.welcomeBox p{
+    font-size: 18px;
+    line-height: 1.7;
+    max-width: 420px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/*=============================
+        SALES SCREEN
+=============================*/
+
+.sidebar{
+    width: 260px;
+    background-color: #0B1026;
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding: 30px 20px;
+
+    position: relative;
+    overflow: hidden;
+}
+
+/* Stars background */
+.sidebar::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        radial-gradient(circle at 12% 8%, rgba(255,255,255,.9) 1px, transparent 2px),
+        radial-gradient(circle at 28% 18%, rgba(255,255,255,.6) 1px, transparent 2px),
+        radial-gradient(circle at 80% 12%, rgba(255,255,255,.8) 1.5px, transparent 3px),
+        radial-gradient(circle at 62% 28%, rgba(255,255,255,.7) 1px, transparent 2px),
+        radial-gradient(circle at 90% 42%, rgba(255,255,255,.9) 1px, transparent 2px),
+        radial-gradient(circle at 18% 56%, rgba(255,255,255,.7) 1px, transparent 2px),
+        radial-gradient(circle at 72% 64%, rgba(255,255,255,.8) 1px, transparent 2px),
+        radial-gradient(circle at 42% 78%, rgba(255,255,255,.6) 1.5px, transparent 3px),
+        radial-gradient(circle at 88% 82%, rgba(255,255,255,.9) 1px, transparent 2px),
+        radial-gradient(circle at 22% 92%, rgba(255,255,255,.8) 1px, transparent 2px);
+
+    opacity: .45;
+
+    pointer-events: none;
+}
+
+/* Keeps all sidebar content above the stars */
+.sidebar > *{
+    position: relative;
+    z-index: 1;
+}
+
+/* Logo */
+
+.logo h1{
+    font-size: 32px;
+    margin-bottom: 5px;
+    color: white;
+    text-shadow: 0 0 12px rgba(27, 54, 93, 0.6);
+}
+
+.logo p{
+    font-size: 14px;
+    color: rgba(255,255,255,.7);
+    margin-bottom: 50px;
+}
+
+/* Navigation */
+
+nav ul{
+    list-style: none;
+}
+
+nav li{
+    margin-bottom: 15px;
+}
+
+nav a{
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding: 14px 18px;
+    border-radius: 10px;
+    transition: .25s;
+}
+
+nav a:hover{
+    background-color: rgba(27,54,93,.35);
+}
+
+nav .active{
+    background-color: #1B365D;
+    border-radius: 10px;
+}
+
+/* Logout Button */
+
+.logoutButton{
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background-color: #1B365D;
+    color: white;
+    font-size: 15px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.logoutButton:hover{
+    background-color: #142B4D;
+}
+
+/* Main Content */
+
+.content{
+    flex: 1;
+    background-color: #F5F7FB;
+    padding: 40px;
+    overflow-y: auto;
+}
+
+.content header{
+    margin-bottom: 35px;
+}
+
+.content h2{
+    font-size: 36px;
+    color: #0B1026;
+}
+
+.content header p{
+    color: #6B7280;
+    margin-top: 6px;
+}
+
+/* Sales Panel */
+
+.salesPanel{
+    background-color: white;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 8px 25px rgba(0,0,0,.08);
+}
+
+.salesPanel form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.salesPanel label{
+    font-weight: 600;
+    color: #374151;
+}
+
+.salesPanel input,
+.salesPanel textarea{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #D1D5DB;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 16px;
+    transition: .25s;
+}
+
+.salesPanel input:focus,
+.salesPanel textarea:focus{
+    outline: none;
+    border-color: #1B365D;
+    box-shadow: 0 0 8px rgba(27,54,93,.25);
+}
+
+.salesPanel textarea{
+    min-height: 140px;
+    resize: vertical;
+}
+
+.salesPanel button{
+    margin-top: 15px;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background-color: #1B365D;
+    color: white;
+    font-size: 16px;
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.salesPanel button:hover{
+    background-color: #142B4D;
+}

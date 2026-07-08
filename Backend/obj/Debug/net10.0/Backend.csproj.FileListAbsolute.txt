@@ -1,0 +1,67 @@
+C:/Users/mmendoza/Documents/C# Practice/Backend/bin/Debug/net10.0/appsettings.Development.json
+C:/Users/mmendoza/Documents/C# Practice/Backend/bin/Debug/net10.0/appsettings.json
+C:/Users/mmendoza/Documents/C# Practice/Backend/bin/Debug/net10.0/Backend.staticwebassets.endpoints.json
+C:/Users/mmendoza/Documents/C# Practice/Backend/bin/Debug/net10.0/Backend.exe
+C:/Users/mmendoza/Documents/C# Practice/Backend/bin/Debug/net10.0/Backend.deps.json
+C:/Users/mmendoza/Documents/C# Practice/Backend/bin/Debug/net10.0/Backend.runtimeconfig.json
+C:/Users/mmendoza/Documents/C# Practice/Backend/bin/Debug/net10.0/Backend.dll
+C:/Users/mmendoza/Documents/C# Practice/Backend/bin/Debug/net10.0/Backend.pdb
+C:/Users/mmendoza/Documents/C# Practice/Backend/bin/Debug/net10.0/Microsoft.AspNetCore.OpenApi.dll
+C:/Users/mmendoza/Documents/C# Practice/Backend/bin/Debug/net10.0/Microsoft.OpenApi.dll
+C:/Users/mmendoza/Documents/C# Practice/Backend/obj/Debug/net10.0/Backend.csproj.AssemblyReference.cache
+C:/Users/mmendoza/Documents/C# Practice/Backend/obj/Debug/net10.0/rpswa.dswa.cache.json
+C:/Users/mmendoza/Documents/C# Practice/Backend/obj/Debug/net10.0/Backend.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/mmendoza/Documents/C# Practice/Backend/obj/Debug/net10.0/Backend.AssemblyInfoInputs.cache
+C:/Users/mmendoza/Documents/C# Practice/Backend/obj/Debug/net10.0/Backend.AssemblyInfo.cs
+C:/Users/mmendoza/Documents/C# Practice/Backend/obj/Debug/net10.0/Backend.csproj.CoreCompileInputs.cache
+C:/Users/mmendoza/Documents/C# Practice/Backend/obj/Debug/net10.0/Backend.MvcApplicationPartsAssemblyInfo.cs
+C:/Users/mmendoza/Documents/C# Practice/Backend/obj/Debug/net10.0/Backend.MvcApplicationPartsAssemblyInfo.cache
+C:/Users/mmendoza/Documents/C# Practice/Backend/obj/Debug/net10.0/rjimswa.dswa.cache.json
+C:/Users/mmendoza/Documents/C# Practice/Backend/obj/Debug/net10.0/rjsmrazor.dswa.cache.json
+C:/Users/mmendoza/Documents/C# Practice/Backend/obj/Debug/net10.0/rjsmcshtml.dswa.cache.json
+C:/Users/mmendoza/Documents/C# Practice/Backend/obj/Debug/net10.0/scopedcss/bundle/Backend.styles.css
+C:/Users/mmendoza/Documents/C# Practice/Backend/obj/Debug/net10.0/staticwebassets.build.json
+C:/Users/mmendoza/Documents/C# Practice/Backend/obj/Debug/net10.0/staticwebassets.build.json.cache
+C:/Users/mmendoza/Documents/C# Practice/Backend/obj/Debug/net10.0/staticwebassets.development.json
+C:/Users/mmendoza/Documents/C# Practice/Backend/obj/Debug/net10.0/staticwebassets.build.endpoints.json
+C:/Users/mmendoza/Documents/C# Practice/Backend/obj/Debug/net10.0/swae.build.ex.cache
+C:/Users/mmendoza/Documents/C# Practice/Backend/obj/Debug/net10.0/Backend.csproj.Up2Date
+C:/Users/mmendoza/Documents/C# Practice/Backend/obj/Debug/net10.0/Backend.dll
+C:/Users/mmendoza/Documents/C# Practice/Backend/obj/Debug/net10.0/refint/Backend.dll
+C:/Users/mmendoza/Documents/C# Practice/Backend/obj/Debug/net10.0/Backend.pdb
+C:/Users/mmendoza/Documents/C# Practice/Backend/obj/Debug/net10.0/Backend.genruntimeconfig.cache
+C:/Users/mmendoza/Documents/C# Practice/Backend/obj/Debug/net10.0/ref/Backend.dll
+/Users/abymb/Documents/Ascendra/Backend/bin/Debug/net10.0/appsettings.Development.json
+/Users/abymb/Documents/Ascendra/Backend/bin/Debug/net10.0/appsettings.json
+/Users/abymb/Documents/Ascendra/Backend/bin/Debug/net10.0/Backend.staticwebassets.endpoints.json
+/Users/abymb/Documents/Ascendra/Backend/bin/Debug/net10.0/Backend
+/Users/abymb/Documents/Ascendra/Backend/bin/Debug/net10.0/Backend.deps.json
+/Users/abymb/Documents/Ascendra/Backend/bin/Debug/net10.0/Backend.runtimeconfig.json
+/Users/abymb/Documents/Ascendra/Backend/bin/Debug/net10.0/Backend.dll
+/Users/abymb/Documents/Ascendra/Backend/bin/Debug/net10.0/Backend.pdb
+/Users/abymb/Documents/Ascendra/Backend/bin/Debug/net10.0/Microsoft.AspNetCore.OpenApi.dll
+/Users/abymb/Documents/Ascendra/Backend/bin/Debug/net10.0/Microsoft.OpenApi.dll
+/Users/abymb/Documents/Ascendra/Backend/obj/Debug/net10.0/Backend.csproj.AssemblyReference.cache
+/Users/abymb/Documents/Ascendra/Backend/obj/Debug/net10.0/rpswa.dswa.cache.json
+/Users/abymb/Documents/Ascendra/Backend/obj/Debug/net10.0/Backend.GeneratedMSBuildEditorConfig.editorconfig
+/Users/abymb/Documents/Ascendra/Backend/obj/Debug/net10.0/Backend.AssemblyInfoInputs.cache
+/Users/abymb/Documents/Ascendra/Backend/obj/Debug/net10.0/Backend.AssemblyInfo.cs
+/Users/abymb/Documents/Ascendra/Backend/obj/Debug/net10.0/Backend.csproj.CoreCompileInputs.cache
+/Users/abymb/Documents/Ascendra/Backend/obj/Debug/net10.0/Backend.MvcApplicationPartsAssemblyInfo.cs
+/Users/abymb/Documents/Ascendra/Backend/obj/Debug/net10.0/Backend.MvcApplicationPartsAssemblyInfo.cache
+/Users/abymb/Documents/Ascendra/Backend/obj/Debug/net10.0/rjimswa.dswa.cache.json
+/Users/abymb/Documents/Ascendra/Backend/obj/Debug/net10.0/rjsmrazor.dswa.cache.json
+/Users/abymb/Documents/Ascendra/Backend/obj/Debug/net10.0/rjsmcshtml.dswa.cache.json
+/Users/abymb/Documents/Ascendra/Backend/obj/Debug/net10.0/scopedcss/bundle/Backend.styles.css
+/Users/abymb/Documents/Ascendra/Backend/obj/Debug/net10.0/staticwebassets.build.json
+/Users/abymb/Documents/Ascendra/Backend/obj/Debug/net10.0/staticwebassets.build.json.cache
+/Users/abymb/Documents/Ascendra/Backend/obj/Debug/net10.0/staticwebassets.development.json
+/Users/abymb/Documents/Ascendra/Backend/obj/Debug/net10.0/staticwebassets.build.endpoints.json
+/Users/abymb/Documents/Ascendra/Backend/obj/Debug/net10.0/swae.build.ex.cache
+/Users/abymb/Documents/Ascendra/Backend/obj/Debug/net10.0/Backend.csproj.Up2Date
+/Users/abymb/Documents/Ascendra/Backend/obj/Debug/net10.0/Backend.dll
+/Users/abymb/Documents/Ascendra/Backend/obj/Debug/net10.0/refint/Backend.dll
+/Users/abymb/Documents/Ascendra/Backend/obj/Debug/net10.0/Backend.pdb
+/Users/abymb/Documents/Ascendra/Backend/obj/Debug/net10.0/Backend.genruntimeconfig.cache
+/Users/abymb/Documents/Ascendra/Backend/obj/Debug/net10.0/ref/Backend.dll
+/Users/abymb/Documents/Ascendra/Backend/bin/Debug/net10.0/Npgsql.dll
