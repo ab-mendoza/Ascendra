@@ -54,27 +54,4 @@ public class SalesController : ControllerBase
             return BadRequest(ex.Message);
         }
     }
-
-/*     [HttpPut("{id}")]
-    public ActionResult UpdateSale(int id, Sale sale)
-    {
-        if (id != sale.TicketId)
-        {
-            return BadRequest(new { message = "Ticket ID in URL does not match the ID in the request body." });
-        }
-        else if (sale.InitialAmount < 0 || sale.FinalAmount < 0)
-        {
-            return BadRequest("Amounts cannot be negative.");
-        }
-
-        _salesService.UpdateSale(sale);
-        return NoContent();
-    }
-
-    [HttpDelete("{id}")]
-    public ActionResult DeleteSale(int id)
-    {
-        _salesService.DeleteSale(id);
-        return NoContent();
-    } */
 }

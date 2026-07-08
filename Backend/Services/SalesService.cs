@@ -152,29 +152,4 @@ public class SalesService
                 $"A sale with Ticket ID {sale.TicketId} already exists.");
         }
     }
-/*     public void UpdateSale(Sale sale)
-    {
-        var existingSale = GetById(sale.TicketId);
-
-        if (sale.FinalAmount < sale.InitialAmount)
-        {
-            throw new Exception("Final amount cannot be less than the initial amount.");
-        }
-        
-        else if (existingSale != null)
-        {
-            existingSale.OrderId = sale.OrderId;
-            existingSale.InitialAmount = sale.InitialAmount;
-            existingSale.FinalAmount = sale.FinalAmount;
-            existingSale.Comment = sale.Comment;
-        }
-    }
-    public void DeleteSale(int id)
-    {
-        var sale = GetById(id);
-        if (sale != null)
-        {
-            _sales.Remove(sale);
-        }
-    } */
 }
