@@ -1,7 +1,7 @@
 namespace Backend.Models;
+
 using System.ComponentModel.DataAnnotations;
 
-// The Sale class represents a sales record with properties for ticket ID, order ID, initial amount, final amount, and a comment.
 public class Sale
 {
     public int TicketId { get; set; }
