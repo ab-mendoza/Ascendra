@@ -140,7 +140,7 @@ public class SalesService
         command.Parameters.AddWithValue("@InitialAmount", sale.InitialAmount);
         command.Parameters.AddWithValue("@FinalAmount", sale.FinalAmount);
         command.Parameters.AddWithValue("@Comment", sale.Comment);
-        command.Parameters.AddWithValue("@Agent", sale.Agent ?? "Test User");
+        command.Parameters.AddWithValue("@Agent", sale.Agent!);
 
         try
         {

@@ -1,11 +1,13 @@
 using Backend.Models;
 using Backend.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Backend.Controllers;
 
 [ApiController]
 [Route("sales")]
+[Authorize]
 
 public class SalesController : ControllerBase
 {
@@ -42,6 +44,10 @@ public class SalesController : ControllerBase
     {
         try
         {
+            string? fullName = User.FindFirst("FullName")?.Value;
+
+            sale.Agent = fullName;
+
             _salesService.AddSale(sale);
 
             return CreatedAtAction(
@@ -54,4 +60,5 @@ public class SalesController : ControllerBase
             return BadRequest(ex.Message);
         }
     }
+    
 }

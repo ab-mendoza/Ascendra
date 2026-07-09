@@ -1,4 +1,18 @@
+// Authentication
+
+const token = localStorage.getItem("token");
+const fullName = localStorage.getItem("fullName");
+const role = localStorage.getItem("role");
+
+if (!token) {
+    window.location.href = "login.html";
+}
+
+// Configuration
+
 const API = "http://localhost:5130/sales";
+
+// DOM Elements
 
 const form = document.getElementById("salesForm");
 const ticketID = document.getElementById("ticketId");
@@ -7,7 +21,22 @@ const initialAmount = document.getElementById("initialAmount");
 const finalAmount = document.getElementById("finalAmount");
 const comment = document.getElementById("comment");
 
+const welcomeMessage = document.getElementById("welcome-message");
+const productsMenu = document.getElementById("productsMenu");
+const logoutButton = document.querySelector(".logoutButton");
+
+// Initialize Page
+
+welcomeMessage.textContent = `Welcome, ${fullName}!`;
+
+if (role !== "Administrator") {
+    productsMenu.style.display = "none";
+}
+
+// Event Listeners
+
 form.addEventListener("submit", async function (event) {
+
     event.preventDefault();
 
     const salesData = {
@@ -19,23 +48,49 @@ form.addEventListener("submit", async function (event) {
     };
 
     try {
+
         const response = await fetch(API, {
+
             method: "POST",
+
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
             },
+
             body: JSON.stringify(salesData)
+
         });
 
         if (!response.ok) {
+
+            if (response.status === 401) {
+                throw new Error("Your session has expired. Please sign in again.");
+            }
+
             const error = await response.text();
-            throw new Error(error);
+
+            throw new Error(error || "An unexpected error occurred.");
+
         }
 
         alert("Sale saved successfully!");
+
         form.reset();
 
-    } catch (error) {
-        alert(error.message);
     }
+    catch (error) {
+
+        alert(error.message);
+
+    }
+
+});
+
+logoutButton.addEventListener("click", function () {
+
+    localStorage.clear();
+
+    window.location.href = "login.html";
+
 });
