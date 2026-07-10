@@ -27,14 +27,9 @@ form.addEventListener("submit", async function (event) {
 
         if (!response.ok) {
 
-            if (response.status === 401) {
-                throw new Error("Your session has expired. Please sign in again.");
-            }
+            const error = await response.json();
 
-            const error = await response.text();
-
-            throw new Error(error || "An unexpected error occurred.");
-
+            throw new Error(error.message || "An unexpected error occurred.");
         }
 
         const result = await response.json();
