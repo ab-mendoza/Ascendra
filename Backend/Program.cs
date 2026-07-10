@@ -44,18 +44,11 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 builder.Services.AddAuthorization();
 
-builder.Services.AddOpenApi();
-
 builder.Services.AddSingleton<SalesService>();
 
 builder.Services.AddSingleton<AuthService>();
 
 var app = builder.Build();
-
-if (app.Environment.IsDevelopment())
-{
-    app.MapOpenApi();
-}
 
 // Order is important: Incoming request -> Authentication -> Controller
 
