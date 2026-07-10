@@ -97,6 +97,7 @@ public class SalesService
 
         return null;
     }
+    
     public void AddSale(Sale sale)
     {
         if (sale.InitialAmount < 0)
