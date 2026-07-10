@@ -1,4 +1,4 @@
-const API = "http://localhost:5130/auth/login";
+const API = "https://ascendra-api.up.railway.app/auth/login";
 
 const form = document.getElementById("loginForm");
 

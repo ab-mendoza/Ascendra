@@ -10,7 +10,7 @@ if (!token) {
 
 // Configuration
 
-const API = "http://localhost:5130/sales";
+const API = "https://ascendra-api.up.railway.app/sales";
 
 // DOM Elements
 
