@@ -1,4 +1,4 @@
-const API = "https://ascendra-api.up.railway.app/auth/login";
+const LOGIN_API = `${BASE_URL}/auth/login`;
 
 const form = document.getElementById("loginForm");
 
@@ -13,7 +13,7 @@ form.addEventListener("submit", async function (event) {
 
     try {
 
-        const response = await fetch(API, {
+        const response = await fetch(LOGIN_API, {
 
             method: "POST",
 

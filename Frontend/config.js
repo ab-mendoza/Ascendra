@@ -1,0 +1,1 @@
+const BASE_URL = "https://ascendra-api.up.railway.app";

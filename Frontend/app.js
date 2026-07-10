@@ -10,7 +10,7 @@ if (!token) {
 
 // Configuration
 
-const API = "https://ascendra-api.up.railway.app/sales";
+const SALES_API = `${BASE_URL}/sales`;
 
 // DOM Elements
 
@@ -49,7 +49,7 @@ form.addEventListener("submit", async function (event) {
 
     try {
 
-        const response = await fetch(API, {
+        const response = await fetch(SALES_API, {
 
             method: "POST",
 
