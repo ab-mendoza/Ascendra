@@ -31,5 +31,12 @@ public class AuthController : ControllerBase
                 message = "Invalid username or password."
             });
         }
+        catch (Exception ex)
+        {
+            return StatusCode(500, new
+            {
+                message = ex.Message
+            });
+        }
     }
 }
