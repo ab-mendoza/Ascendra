@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,18 +8,17 @@
 
     <link rel="stylesheet" href="style.css">
 
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <link href="sales.css" rel="stylesheet">
+    <link rel="stylesheet" href="sales.css">
 </head>
 
 <body>
 
     <div class="container">
 
-        <!-- Sidebar -->
         <aside class="sidebar">
 
             <div class="logo">
@@ -26,7 +26,7 @@
                 <p id="welcome-message"></p>
             </div>
 
-            <nav>
+            <nav aria-label="Primary navigation">
 
                 <ul>
 
@@ -35,7 +35,7 @@
                     </li>
 
                     <li class="active">
-                        <a href="#">Sales Records</a>
+                        <a href="#" aria-current="page">Sales Records</a>
                     </li>
 
                     <li id="productsMenu">
@@ -46,14 +46,12 @@
 
             </nav>
 
-            <button class="logoutButton">
+            <button class="logoutButton" type="button">
                 Log Out
             </button>
 
         </aside>
 
-
-        <!-- Main Content -->
         <main class="content">
 
             <header>
@@ -66,71 +64,117 @@
 
             </header>
 
-            <!--Start of sales panel-->
-            <section class="salesPanel">
+            <section class="salesPanel" aria-labelledby="salesFormTitle">
+
+                <div class="panelHeader">
+
+                    <h3 id="salesFormTitle">
+                        New sales record
+                    </h3>
+
+                    <p>
+                        Enter the ticket, order, and financial details.
+                    </p>
+
+                </div>
 
                 <form action="#" method="post" id="salesForm">
 
-                    <!--Request ticket ID-->
-                    <label for="ticketID">
-                        Ticket ID
-                    </label>
+                    <div class="formGrid">
 
-                    <input
-                    type="number"
-                    id="ticketId"
-                    name="ticketId"
-                    placeholder="Enter the Zendesk ticket"
-                    required>
-                    
-                    <!--Request order ID-->
-                    <label for="orderId">
-                        Order ID
-                    </label>
-                    
-                    <input
-                    type="number"
-                    id="orderId"
-                    name="orderId"
-                    min="0"
-                    step="0.01"
-                    placeholder="Enter the order ID"
-                    required>
+                        <div class="formField">
 
-                    <!--Request initial amount-->
-                    <label for="initialAmount">
-                        Initial Amount
-                    </label>
+                            <label for="ticketId">
+                                Ticket ID
+                            </label>
 
-                    <input
-                    type="number"
-                    id="initialAmount"
-                    name="initialAmount"
-                    min="0"
-                    step="0.01"
-                    placeholder="Enter the initial amount"
-                    required>
-                    
-                    <!--Request final amount-->
-                    <label for="finalAmount">
-                        Final Amount
-                    </label>
+                            <input
+                                type="number"
+                                id="ticketId"
+                                name="ticketId"
+                                inputmode="numeric"
+                                placeholder="Enter the Zendesk ticket"
+                                required>
 
-                    <input
-                    type="number"
-                    id="finalAmount"
-                    name="finalAmount"
-                    min="0"
-                    step="0.01"
-                    placeholder="Enter the final amount"
-                    required>
+                        </div>
 
-                    <!--Comment box-->
-                    <label for="comment">Your Comment:</label>
-                    <textarea id="comment" name="comment" rows="5" cols="40" placeholder="Write your comment here..."></textarea>
+                        <div class="formField">
 
-                    <!--Submit button-->
-                    <button type="submit">Submit</button>
+                            <label for="orderId">
+                                Order ID
+                            </label>
+
+                            <input
+                                type="number"
+                                id="orderId"
+                                name="orderId"
+                                min="0"
+                                step="0.01"
+                                inputmode="decimal"
+                                placeholder="Enter the order ID"
+                                required>
+
+                        </div>
+
+                        <div class="formField">
+
+                            <label for="initialAmount">
+                                Initial Amount
+                            </label>
+
+                            <input
+                                type="number"
+                                id="initialAmount"
+                                name="initialAmount"
+                                min="0"
+                                step="0.01"
+                                inputmode="decimal"
+                                placeholder="Enter the initial amount"
+                                required>
+
+                        </div>
+
+                        <div class="formField">
+
+                            <label for="finalAmount">
+                                Final Amount
+                            </label>
+
+                            <input
+                                type="number"
+                                id="finalAmount"
+                                name="finalAmount"
+                                min="0"
+                                step="0.01"
+                                inputmode="decimal"
+                                placeholder="Enter the final amount"
+                                required>
+
+                        </div>
+
+                        <div class="formField formFieldWide">
+
+                            <label for="comment">
+                                Comment
+                            </label>
+
+                            <textarea
+                                id="comment"
+                                name="comment"
+                                rows="5"
+                                placeholder="Write your comment here..."></textarea>
+
+                        </div>
+
+                        <div class="formActions">
+
+                            <button type="submit">
+                                Submit Sale
+                            </button>
+
+                        </div>
+
+                    </div>
 
                 </form>
 
@@ -144,4 +188,5 @@
     <script src="app.js"></script>
 
 </body>
+
 </html>

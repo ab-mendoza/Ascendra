@@ -9,14 +9,15 @@
 }
 
 body{
-    font-family: "Poppins", sans-serif;
+    font-family: "Montserrat", sans-serif;
     background-color: #F5F7FB;
-    height: 100vh;
+    color: #172033;
+    min-height: 100vh;
 }
 
 .container{
     display: flex;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 /*=============================
@@ -24,18 +25,18 @@ body{
 =============================*/
 
 .sidebar{
-    width: 260px;
-    background-color: #0B1026;
-    color: white;
+    position: relative;
+    width: 250px;
+    min-height: 100vh;
+    padding: 30px 18px;
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 
-    padding: 30px 20px;
-
-    position: relative;
     overflow: hidden;
+    background-color: #0B1026;
+    color: white;
 }
 
 .sidebar::before{
@@ -55,7 +56,7 @@ body{
         radial-gradient(circle at 88% 82%, rgba(255,255,255,.9) 1px, transparent 2px),
         radial-gradient(circle at 22% 92%, rgba(255,255,255,.8) 1px, transparent 2px);
 
-    opacity: .45;
+    opacity: .18;
     pointer-events: none;
 }
 
@@ -69,16 +70,20 @@ body{
 =============================*/
 
 .logo h1{
-    font-size: 32px;
-    margin-bottom: 5px;
+    margin-bottom: 6px;
+
+    font-size: 29px;
+    font-weight: 700;
     color: white;
-    text-shadow: 0 0 12px rgba(27,54,93,.6);
+    text-shadow: 0 0 12px rgba(79,124,255,.6);
 }
 
 .logo p{
-    font-size: 14px;
+    min-height: 18px;
+    margin-bottom: 46px;
+
+    font-size: 13px;
     color: rgba(255,255,255,.7);
-    margin-bottom: 50px;
 }
 
 /*=============================
@@ -90,25 +95,50 @@ nav ul{
 }
 
 nav li{
-    margin-bottom: 15px;
+    margin-bottom: 8px;
 }
 
 nav a{
+    position: relative;
+
     display: block;
+    padding: 12px 14px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: 500;
     text-decoration: none;
-    color: white;
-    padding: 14px 18px;
-    border-radius: 10px;
-    transition: .25s;
+    color: rgba(255,255,255,.76);
+
+    transition: background-color .2s, color .2s;
 }
 
 nav a:hover{
-    background-color: rgba(27,54,93,.35);
+    background-color: rgba(255,255,255,.08);
+    color: white;
 }
 
-nav .active{
-    background-color: #1B365D;
-    border-radius: 10px;
+nav a:focus-visible{
+    outline: 2px solid #7FA0FF;
+    outline-offset: 3px;
+}
+
+nav li.active a{
+    background-color: rgba(79,124,255,.18);
+    color: white;
+}
+
+nav li.active a::before{
+    content: "";
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    left: 0;
+
+    width: 3px;
+    border-radius: 0 3px 3px 0;
+    background-color: #7FA0FF;
 }
 
 /*=============================
@@ -116,19 +146,30 @@ nav .active{
 =============================*/
 
 .logoutButton{
-    padding: 14px;
-    border: none;
+    width: 100%;
+    padding: 12px 14px;
+
+    border: 1px solid rgba(255,255,255,.16);
     border-radius: 10px;
     background-color: #1B365D;
-    color: white;
-    font-size: 15px;
+
     font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
     cursor: pointer;
-    transition: .3s;
+
+    transition: background-color .2s, border-color .2s;
 }
 
 .logoutButton:hover{
-    background-color: #142B4D;
+    border-color: rgba(255,255,255,.3);
+    background-color:   #142B4D;
+}
+
+.logoutButton:focus-visible{
+    outline: 2px solid #7FA0FF;
+    outline-offset: 3px;
 }
 
 /*=============================
@@ -137,23 +178,27 @@ nav .active{
 
 .content{
     flex: 1;
+    min-width: 0;
+    padding: 44px;
     background-color: #F5F7FB;
-    padding: 40px;
-    overflow-y: auto;
 }
 
 .content header{
-    margin-bottom: 35px;
+    max-width: 960px;
+    margin-bottom: 30px;
 }
 
 .content h2{
-    font-size: 36px;
+    font-size: 34px;
+    font-weight: 700;
     color: #0B1026;
 }
 
 .content header p{
-    color: #6B7280;
-    margin-top: 6px;
+    margin-top: 8px;
+
+    font-size: 14px;
+    color: #667085;
 }
 
 /*=============================
@@ -161,62 +206,127 @@ nav .active{
 =============================*/
 
 .salesPanel{
-    background-color: white;
+    max-width: 100%;
+    padding: 32px;
+
+    border: 1px solid #E4E7EC;
     border-radius: 16px;
-    padding: 30px;
-    box-shadow: 0 8px 25px rgba(0,0,0,.08);
+    background-color: white;
+    box-shadow: 0 10px 24px rgba(16,24,40,.06);
 }
 
-.salesPanel form{
+.panelHeader{
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #EAECF0;
+}
+
+.panelHeader h3{
+    font-size: 18px;
+    font-weight: 700;
+    color: #172033;
+}
+
+.panelHeader p{
+    margin-top: 6px;
+
+    font-size: 13px;
+    line-height: 1.5;
+    color: #667085;
+}
+
+.formGrid{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.formField{
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 8px;
+}
+
+.formFieldWide,
+.formActions{
+    grid-column: 1 / -1;
 }
 
 .salesPanel label{
+    font-size: 14px;
     font-weight: 600;
-    color: #374151;
+    color: #344054;
 }
 
 .salesPanel input,
 .salesPanel textarea{
     width: 100%;
-    padding: 12px;
-    border: 1px solid #D1D5DB;
+    border: 1px solid #D0D5DD;
     border-radius: 8px;
+    outline: none;
+    background-color: white;
+
     font-family: inherit;
-    font-size: 16px;
-    transition: .25s;
+    font-size: 15px;
+    color: #172033;
+
+    transition: border-color .2s, box-shadow .2s;
 }
 
-.salesPanel input:focus,
-.salesPanel textarea:focus{
-    outline: none;
-    border-color: #1B365D;
-    box-shadow: 0 0 8px rgba(27,54,93,.25);
+.salesPanel input{
+    height: 48px;
+    padding: 0 14px;
 }
 
 .salesPanel textarea{
     min-height: 140px;
+    padding: 12px 14px;
     resize: vertical;
 }
 
+.salesPanel input::placeholder,
+.salesPanel textarea::placeholder{
+    color: #98A2B3;
+}
+
+.salesPanel input:focus,
+.salesPanel textarea:focus{
+    border-color: #4F7CFF;
+    box-shadow: 0 0 0 3px rgba(79,124,255,.16);
+}
+
+.formActions{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 4px;
+}
+
 .salesPanel button{
-    margin-top: 15px;
-    padding: 14px;
+    min-width: 150px;
+    padding: 13px 22px;
+
     border: none;
     border-radius: 8px;
     background-color: #1B365D;
-    color: white;
-    font-size: 16px;
+    box-shadow: 0 6px 14px rgba(27,54,93,.2);
+
     font-family: inherit;
+    font-size: 14px;
     font-weight: 600;
+    color: white;
     cursor: pointer;
-    transition: .3s;
+
+    transition: background-color .2s, box-shadow .2s;
 }
 
 .salesPanel button:hover{
     background-color: #142B4D;
+    box-shadow: 0 8px 18px rgba(27,54,93,.28);
+}
+
+.salesPanel button:focus-visible{
+    outline: 3px solid rgba(79,124,255,.42);
+    outline-offset: 3px;
 }
 
 /*=============================
@@ -224,88 +334,101 @@ nav .active{
 =============================*/
 
 @media (max-width: 800px){
-    body{
-        height: auto;
-        min-height: 100vh;
-    }
-
     .container{
         flex-direction: column;
-        height: auto;
-        min-height: 100vh;
     }
 
     .sidebar{
         width: 100%;
-        padding: 24px 16px;
-        justify-content: flex-start;
-        gap: 18px;
+        min-height: auto;
+        padding: 20px 16px 16px;
+        gap: 16px;
+    }
+
+    .logo{
+        text-align: center;
     }
 
     .logo h1{
-        font-size: 28px;
-        text-align: center;
+        font-size: 27px;
     }
 
     .logo p{
-        margin-bottom: 8px;
-        text-align: center;
+        min-height: 0;
+        margin-bottom: 0;
     }
 
     nav ul{
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 6px;
     }
 
     nav li{
-        flex: 1 1 130px;
         margin-bottom: 0;
     }
 
     nav a{
-        padding: 12px 10px;
+        padding: 10px 6px;
         border-radius: 8px;
+        font-size: 12px;
         text-align: center;
     }
 
-    nav .active{
-        border-radius: 8px;
+    nav li.active a::before{
+        top: auto;
+        right: 12px;
+        bottom: 0;
+        left: 12px;
+
+        width: auto;
+        height: 3px;
+        border-radius: 3px 3px 0 0;
     }
 
     .logoutButton{
-        width: 100%;
-        margin-top: 4px;
+        width: auto;
+        align-self: center;
+        padding: 10px 20px;
     }
 
     .content{
-        padding: 25px 16px;
-        overflow-y: visible;
+        padding: 28px 16px;
     }
 
     .content header{
-        margin-bottom: 25px;
-        text-align: center;
+        margin-bottom: 24px;
     }
 
     .content h2{
         font-size: 28px;
     }
 
-    .content header p{
-        font-size: 15px;
-    }
-
     .salesPanel{
         padding: 20px;
-        border-radius: 12px;
     }
 
-    .salesPanel form{
-        gap: 12px;
+    .panelHeader{
+        margin-bottom: 22px;
+        padding-bottom: 16px;
     }
 
-    .salesPanel textarea{
-        min-height: 120px;
+    .formGrid{
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .formFieldWide,
+    .formActions{
+        grid-column: auto;
+    }
+
+    .formActions{
+        display: block;
+        margin-top: 4px;
+    }
+
+    .salesPanel button{
+        width: 100%;
     }
 }
