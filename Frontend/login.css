@@ -9,111 +9,274 @@
 }
 
 body{
-    font-family: "Poppins", sans-serif;
-    background-color: #f4f6f9;
-    height: 100vh;
+    font-family: "Montserrat", sans-serif;
+    background-color: #070B1C;
 }
 
-.container{
+.login-page{
+    min-height: 100vh;
+    min-height: 100svh;
+}
+
+/*=============================
+        PAGE LAYOUT
+=============================*/
+
+.page-header{
+    position: relative;
+    isolation: isolate;
+
     display: flex;
-    height: 100vh;
+    flex-direction: column;
+
+    min-height: 100vh;
+    min-height: 100svh;
+    overflow: hidden;
+    color: white;
+}
+
+.page-header-image{
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+
+    background-image: url(galaxy.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.page-header::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-color: rgba(3, 7, 20, .56);
 }
 
 /*=============================
         LOGIN
 =============================*/
 
-.logBox{
-    width: 40%;
+.content{
     display: flex;
-    flex-direction: column;
+    flex: 1;
     justify-content: center;
     align-items: center;
-    background-color: #0B1026;
-    color: white;
+    padding: 40px 20px;
 }
 
-.logBox form{
-    display: flex;
-    flex-direction: column;
-    width: 350px;
-}
-
-.logBox h1{
-    margin-bottom: 30px;
-    text-align: center;
-    color: whitesmoke;
-}
-
-label{
-    margin-top: 15px;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-input[type="email"],
-input[type="password"]{
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 16px;
-    color: #0B1026;
-}
-
-input[type="submit"]{
-    margin-top: 30px;
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
-    background-color: #4F7CFF;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: .3s;
-}
-
-input[type="submit"]:hover{
-    background-color: #3458D6;
-}
-
-/*=============================
-        WELCOME BOX
-=============================*/
-
-.welcomeBox{
+.login-card{
     width: 100%;
-    background-image: url(galaxy.jpg);
-    background-size: cover;
-    color: white;
+    max-width: 390px;
+    text-align: center;
+}
+
+.logo-container{
+    width: 68px;
+    height: 68px;
+    margin: 0 auto 18px;
 
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    text-align: center;
-    padding: 50px;
+    border: 1px solid rgba(255, 255, 255, .45);
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, .12);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, .16),
+        0 10px 25px rgba(0, 0, 0, .2);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
-.welcomeBox h1{
-    font-size: 64px;
+.logo-container span{
+    font-size: 32px;
     font-weight: 700;
-    letter-spacing: 2px;
     color: white;
     text-shadow: 0 0 12px rgba(79,124,255,.6);
 }
 
-.welcomeBox h2{
-    font-size: 24px;
-    font-weight: 300;
-    letter-spacing: 1px;
-    color: rgba(255,255,255,.85);
-    margin-bottom: 35px;
+.login-card h1{
+    font-size: 42px;
+    font-weight: 700;
+    color: white;
+    text-shadow: 0 0 12px rgba(79,124,255,.6);
 }
 
-.welcomeBox p{
-    font-size: 18px;
+#loginForm{
+    margin-top: 32px;
+}
+
+.input-group{
+    margin-bottom: 14px;
+}
+
+.input-group input{
+    width: 100%;
+    height: 62px;
+    padding: 0 22px;
+
+    border: none;
+    border-radius: 30px;
+    outline: none;
+
+    background-color: rgba(255, 255, 255, .16);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, .12),
+        0 10px 24px rgba(0, 0, 0, .14);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    font-family: inherit;
+    font-size: 16px;
+    color: white;
+
+    transition: background-color .25s, box-shadow .25s;
+}
+
+.input-group input::placeholder{
+    color: rgba(255, 255, 255, .78);
+}
+
+.input-group input:focus{
+    background-color: rgba(255, 255, 255, .25);
+    box-shadow:
+        0 0 0 3px rgba(79, 124, 255, .36),
+        0 10px 24px rgba(0, 0, 0, .2);
+}
+
+.input-group input:-webkit-autofill{
+    -webkit-text-fill-color: white;
+    -webkit-box-shadow: 0 0 0 1000px rgba(255, 255, 255, .16) inset;
+    transition: background-color 9999s ease-in-out 0s;
+}
+
+input[type="submit"]{
+    width: 100%;
+    height: 62px;
+    margin-top: 12px;
+
+    border: none;
+    border-radius: 30px;
+
+    background-color: #4F7CFF;
+    box-shadow: 0 12px 24px rgba(41, 83, 203, .42);
+
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+
+    transition: background-color .25s, box-shadow .25s;
+}
+
+input[type="submit"]:hover{
+    background-color: #3458D6;
+    box-shadow: 0 14px 28px rgba(41, 83, 203, .55);
+}
+
+input[type="submit"]:focus-visible{
+    outline: 3px solid rgba(255, 255, 255, .8);
+    outline-offset: 3px;
+}
+
+/*=============================
+        PLATFORM
+=============================*/
+
+.platform{
+    margin-top: 10px;
+
+    font-size: 15px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, .82);
+}
+
+/*=============================
+        FOOTER QUOTE
+=============================*/
+
+.footer{
+    width: 100%;
+    padding: 20px 7% 34px;
+    text-align: center;
+}
+
+.footer p{
+    max-width: 620px;
+    margin: 0 auto;
+
+    font-size: 13px;
     line-height: 1.7;
-    max-width: 420px;
-    color: rgba(255,255,255,.8);
+    text-align: center;
+    color: rgba(255, 255, 255, .72);
+}
+
+/*=============================
+        ACCESSIBILITY
+=============================*/
+
+.sr-only{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/*=============================
+        MOBILE
+=============================*/
+
+@media (max-width: 800px){
+    .content{
+        padding: 32px 20px;
+    }
+
+    .logo-container{
+        width: 62px;
+        height: 62px;
+        margin-bottom: 16px;
+    }
+
+    .logo-container span{
+        font-size: 29px;
+    }
+
+    .login-card h1{
+        font-size: 37px;
+    }
+
+    .platform{
+        margin-top: 8px;
+        font-size: 14px;
+    }
+
+    #loginForm{
+        margin-top: 28px;
+    }
+
+    .footer{
+        padding: 20px 20px 26px;
+        text-align: left;
+    }
+
+    .footer p{
+        max-width: 100%;
+        padding-left: 16px;
+
+        border-left: 2px solid rgba(132, 161, 255, .85);
+
+        font-size: 12px;
+        text-align: left;
+        color: rgba(255, 255, 255, .82);
+    }
 }

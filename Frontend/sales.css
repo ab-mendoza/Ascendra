@@ -218,3 +218,94 @@ nav .active{
 .salesPanel button:hover{
     background-color: #142B4D;
 }
+
+/*=============================
+        MOBILE
+=============================*/
+
+@media (max-width: 800px){
+    body{
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .container{
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .sidebar{
+        width: 100%;
+        padding: 24px 16px;
+        justify-content: flex-start;
+        gap: 18px;
+    }
+
+    .logo h1{
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .logo p{
+        margin-bottom: 8px;
+        text-align: center;
+    }
+
+    nav ul{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    nav li{
+        flex: 1 1 130px;
+        margin-bottom: 0;
+    }
+
+    nav a{
+        padding: 12px 10px;
+        border-radius: 8px;
+        text-align: center;
+    }
+
+    nav .active{
+        border-radius: 8px;
+    }
+
+    .logoutButton{
+        width: 100%;
+        margin-top: 4px;
+    }
+
+    .content{
+        padding: 25px 16px;
+        overflow-y: visible;
+    }
+
+    .content header{
+        margin-bottom: 25px;
+        text-align: center;
+    }
+
+    .content h2{
+        font-size: 28px;
+    }
+
+    .content header p{
+        font-size: 15px;
+    }
+
+    .salesPanel{
+        padding: 20px;
+        border-radius: 12px;
+    }
+
+    .salesPanel form{
+        gap: 12px;
+    }
+
+    .salesPanel textarea{
+        min-height: 120px;
+    }
+}
