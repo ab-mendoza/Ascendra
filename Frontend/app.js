@@ -27,7 +27,7 @@ const comment = document.getElementById("comment");
 
 // Get page elements used for user display, navigation, and logout.
 const welcomeMessage = document.getElementById("welcome-message");
-const productsMenu = document.getElementById("productsMenu");
+const salesHistoryTab = document.getElementById("salesHistory");
 const logoutButton = document.querySelector(".logoutButton");
 
 // Initialize Page
@@ -37,7 +37,7 @@ welcomeMessage.textContent = `Welcome, ${fullName}!`;
 
 // Hide the products menu for users who are not administrators.
 if (role !== "Administrator") {
-    productsMenu.style.display = "none";
+    salesHistoryTab.style.display = "none";
 }
 
 // Event Listeners

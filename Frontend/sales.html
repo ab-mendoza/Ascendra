@@ -17,12 +17,16 @@
 
 <body>
 
+    <!-- Main layout: sidebar navigation and sales content area. -->
     <div class="container">
 
+        <!-- Sidebar with user greeting, navigation links, and logout action. -->
         <aside class="sidebar">
 
             <div class="logo">
                 <h1>Ascendra</h1>
+
+                <!-- Filled by JavaScript with the authenticated user's name. -->
                 <p id="welcome-message"></p>
             </div>
 
@@ -30,28 +34,25 @@
 
                 <ul>
 
-                    <li>
-                        <a href="#">Dashboard</a>
-                    </li>
+                    <li><a href="#">Dashboard</a></li>
+                    <li class="active"><a href="#" aria-current="page">Sales</a></li>
 
-                    <li class="active">
-                        <a href="#" aria-current="page">Sales Records</a>
-                    </li>
-
-                    <li id="productsMenu">
-                        <a href="#">Products</a>
-                    </li>
+                    <!-- Hidden by JavaScript for users who are not administrators. -->
+                    <li id="salesHistory"><a href="sales-history.html">Sales History</a></li>
+                    <li id="productsMenu"><a href="#">Products</a></li>
 
                 </ul>
 
             </nav>
 
+            <!-- Clears the saved session and redirects the user when clicked. -->
             <button class="logoutButton" type="button">
                 Log Out
             </button>
 
         </aside>
 
+        <!-- Main sales records page content. -->
         <main class="content">
 
             <header>
@@ -64,6 +65,7 @@
 
             </header>
 
+            <!-- Panel containing the form used to create a new sales record. -->
             <section class="salesPanel" aria-labelledby="salesFormTitle">
 
                 <div class="panelHeader">
@@ -78,6 +80,7 @@
 
                 </div>
 
+                <!-- Submitted by JavaScript to the sales API instead of a normal page reload. -->
                 <form action="#" method="post" id="salesForm">
 
                     <div class="formGrid">
@@ -184,7 +187,10 @@
 
     </div>
 
+    <!-- Provides shared configuration values used by the page scripts. -->
     <script src="config.js"></script>
+
+    <!-- Handles authentication, role-based UI, form submission, and logout. -->
     <script src="app.js"></script>
 
 </body>

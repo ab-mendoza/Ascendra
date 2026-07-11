@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ascendra - Sales History</title>
+
+    <!-- Matches the existing sales page stylesheet order. -->
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="sales.css">
+    <link rel="stylesheet" href="sales-history.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <h1>Ascendra</h1>
+                <p id="welcome-message"></p>
+            </div>
+
+            <nav aria-label="Primary navigation">
+                <ul>
+                    <li><a href="#">Dashboard</a></li>
+                    <li><a href="sales.html">Sales</a></li>
+                    <li class="active"><a href="sales-history.html" aria-current="page">Sales History</a></li>
+                    <li id="productsMenu"><a href="#">Products</a></li>
+                </ul>
+            </nav>
+
+            <button class="logoutButton" type="button">Log Out</button>
+        </aside>
+
+        <main class="content">
+            <header>
+                <h2>Sales History</h2>
+                <p>Review sales recorded by your team.</p>
+            </header>
+
+            <section class="salesHistoryPanel" aria-labelledby="salesHistoryTitle">
+                <div class="salesHistoryPanelHeader">
+                    <h3 id="salesHistoryTitle">Sales Records</h3>
+                    <p>Use the filters to find a specific sale.</p>
+                </div>
+
+                <!-- These controls filter the sales returned by GET /sales. -->
+                <form class="salesHistoryFilters" id="salesHistoryFilters">
+                    <div class="salesHistorySearch">
+                        <label for="salesSearch">Search sales</label>
+                        <input
+                            type="search"
+                            id="salesSearch"
+                            name="search"
+                            placeholder="Ticket, order, agent, or comment"
+                        >
+                    </div>
+
+                    <div class="salesHistoryDateFilters">
+                        <div class="salesHistoryField">
+                            <label for="dateFrom">From</label>
+                            <input type="date" id="dateFrom" name="dateFrom">
+                        </div>
+
+                        <div class="salesHistoryField">
+                            <label for="dateTo">To</label>
+                            <input type="date" id="dateTo" name="dateTo">
+                        </div>
+                    </div>
+                </form>
+
+                <p class="salesHistoryState" id="salesHistoryState" role="status" aria-live="polite" hidden></p>
+
+                <div class="salesHistoryTableScroll">
+                    <table class="salesHistoryTable">
+                        <caption>Sales history</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col" aria-sort="none">
+                                    <button class="sortButton" type="button" data-sort-key="ticketId">Ticket ID</button>
+                                </th>
+                                <th scope="col" aria-sort="none">
+                                    <button class="sortButton" type="button" data-sort-key="orderId">Order ID</button>
+                                </th>
+                                <th scope="col" aria-sort="none">
+                                    <button class="sortButton" type="button" data-sort-key="agent">Agent</button>
+                                </th>
+                                <th scope="col" aria-sort="none">
+                                    <button class="sortButton" type="button" data-sort-key="createdAt">Date</button>
+                                </th>
+                                <th scope="col" aria-sort="none" class="numericColumn">
+                                    <button class="sortButton" type="button" data-sort-key="initialAmount">Initial Amount</button>
+                                </th>
+                                <th scope="col" aria-sort="none" class="numericColumn">
+                                    <button class="sortButton" type="button" data-sort-key="finalAmount">Final Amount</button>
+                                </th>
+                                <th scope="col">Comment</th>
+                            </tr>
+                        </thead>
+
+                        <!-- sales-history.js creates rows from the database response. -->
+                        <tbody id="salesHistoryBody"></tbody>
+                    </table>
+                </div>
+
+                <p class="salesHistoryEmpty" id="salesHistoryEmpty" hidden>No sales match the selected filters.</p>
+
+                <footer class="salesHistoryFooter" id="salesHistoryFooter" hidden>
+                    <p id="salesHistorySummary" aria-live="polite"></p>
+                    <nav class="salesHistoryPagination" id="salesHistoryPagination" aria-label="Sales history pages"></nav>
+                </footer>
+            </section>
+        </main>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="sales-history.js"></script>
+</body>
+</html>
