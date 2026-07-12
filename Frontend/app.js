@@ -1,38 +1,26 @@
-// Authentication
-
 // Retrieve the saved authentication and user information from local storage.
 const token = localStorage.getItem("token");
 const fullName = localStorage.getItem("fullName");
 const role = localStorage.getItem("role");
 
-// If there is no token, the user is not authenticated and must log in.
 if (!token) {
     window.location.href = "login.html";
 }
 
-// Configuration
 
-// Build the sales API endpoint URL from the configured base API URL.
 const SALES_API = `${BASE_URL}/sales`;
 
-// DOM Elements
-
-// Get the sales form and its input fields from the page.
+const welcomeMessage = document.getElementById("welcome-message");
+const productsMenu = document.getElementById("productsMenu");
+const logoutButton = document.querySelector(".logoutButton");
 const form = document.getElementById("salesForm");
 const ticketID = document.getElementById("ticketId");
 const orderID = document.getElementById("orderId");
 const initialAmount = document.getElementById("initialAmount");
 const finalAmount = document.getElementById("finalAmount");
 const comment = document.getElementById("comment");
-
-// Get page elements used for user display, navigation, and logout.
-const welcomeMessage = document.getElementById("welcome-message");
 const salesHistoryTab = document.getElementById("salesHistory");
-const logoutButton = document.querySelector(".logoutButton");
 
-// Initialize Page
-
-// Display a personalized welcome message using the saved user's full name.
 welcomeMessage.textContent = `Welcome, ${fullName}!`;
 
 // Hide the products menu for users who are not administrators.
@@ -40,15 +28,10 @@ if (role !== "Administrator") {
     salesHistoryTab.style.display = "none";
 }
 
-// Event Listeners
-
-// Handle the sales form submission.
 form.addEventListener("submit", async function (event) {
 
-    // Prevent the browser from reloading the page when the form is submitted.
     event.preventDefault();
 
-    // Collect and format the sales data from the form fields.
     const salesData = {
         ticketId: Number(ticketID.value),
         orderId: Number(orderID.value),
@@ -73,7 +56,6 @@ form.addEventListener("submit", async function (event) {
 
         });
 
-        // Handle failed API responses.
         if (!response.ok) {
 
             // If the token is invalid or expired, ask the user to sign in again.
@@ -88,7 +70,6 @@ form.addEventListener("submit", async function (event) {
 
         }
 
-        // Notify the user that the sale was saved.
         alert("Sale saved successfully!");
 
         // Clear the form fields after a successful save.
@@ -97,7 +78,6 @@ form.addEventListener("submit", async function (event) {
     }
     catch (error) {
 
-        // Show any request, authentication, or validation error to the user.
         alert(error.message);
 
     }

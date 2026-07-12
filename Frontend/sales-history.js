@@ -1,4 +1,3 @@
-// Authentication and user information shared with the existing sales page.
 const token = localStorage.getItem("token");
 const fullName = localStorage.getItem("fullName");
 const role = localStorage.getItem("role");
@@ -36,23 +35,28 @@ if (role !== "Administrator") {
     productsMenu.style.display = "none";
 }
 
+// Update the status message above the table.  
 function showState(message, type = "") {
     stateMessage.textContent = message;
+    // Updates the class name to include the type of message (e.g., "error", "loading") for styling purposes.
     stateMessage.className = `salesHistoryState ${type}`.trim();
     stateMessage.hidden = !message;
 }
 
+// Extracts the date from a sale object and formats it as a string in "YYYY-MM-DD" format.
 function getSaleDate(sale) {
     return String(sale.createdAt || "").slice(0, 10);
 }
 
+// Formats a date value into a human-readable string using the user's locale settings.
 function formatDate(value) {
+    // Create a Date object from the input value.
     const date = new Date(value);
-
+    // Check if the date is valid. If not, return a placeholder.
     if (Number.isNaN(date.getTime())) {
         return "-";
     }
-
+    // Use Intl.DateTimeFormat to format the date according to the user's locale.
     return new Intl.DateTimeFormat(undefined, {
         year: "numeric",
         month: "short",
@@ -60,6 +64,7 @@ function formatDate(value) {
     }).format(date);
 }
 
+// Formats a numeric value as a currency string in USD format.
 function formatAmount(value) {
     const amount = Number(value);
 
@@ -68,16 +73,19 @@ function formatAmount(value) {
     }
 
     return amount.toLocaleString(undefined, {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2
+        style: "currency",
+        currency: "USD"
     });
 }
 
+// Returns a new array containing only the sales that match the provided filters.
 function getFilteredSales() {
+
     const searchTerm = searchInput.value.trim().toLowerCase();
     const dateFrom = dateFromInput.value;
     const dateTo = dateToInput.value;
 
+    // Filter the sales based on the search term and date range.
     return sales.filter(function (sale) {
         const saleDate = getSaleDate(sale);
         const searchableText = [
@@ -85,8 +93,12 @@ function getFilteredSales() {
             sale.orderId,
             sale.agent,
             sale.comment
-        ].join(" ").toLowerCase();
+        ]
+        .filter(Boolean)
+        .join(" ").
+        toLowerCase();
 
+        // Check if the sale matches the search term and date range.
         const matchesSearch = !searchTerm || searchableText.includes(searchTerm);
         const matchesFromDate = !dateFrom || saleDate >= dateFrom;
         const matchesToDate = !dateTo || saleDate <= dateTo;
@@ -94,7 +106,9 @@ function getFilteredSales() {
         return matchesSearch && matchesFromDate && matchesToDate;
     });
 }
-
+// Sorts the sales array based on the current sort key and direction.
+// ...: spread operator.
+// ?? "": nullish coalescing operator.
 function sortSales(salesToSort) {
     return [...salesToSort].sort(function (firstSale, secondSale) {
         const firstValue = firstSale[sortKey] ?? "";
@@ -115,6 +129,7 @@ function sortSales(salesToSort) {
     });
 }
 
+// Creates a cell and assigns the given value.
 function createCell(value, className = "") {
     const cell = document.createElement("td");
     cell.textContent = value;
@@ -126,6 +141,7 @@ function createCell(value, className = "") {
     return cell;
 }
 
+// Iterates over each sales in the array, gets the values and appends them into the created row.
 function renderRows(pageSales) {
     tableBody.replaceChildren();
 
