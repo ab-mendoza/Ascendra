@@ -162,6 +162,7 @@ function renderRows(pageSales) {
     });
 }
 
+// Creartes a pagination button
 function createPaginationButton(label, page, disabled = false) {
     const button = document.createElement("button");
     button.type = "button";
@@ -180,10 +181,12 @@ function createPaginationButton(label, page, disabled = false) {
     return button;
 }
 
+// Creates a numbered pagination button and adds it to the pagination bar.
 function addPageButton(page) {
-    pagination.append(createPaginationButton(String(page), page));
+    pagination.append(createPaginationButton(page, page));
 }
 
+// Creates an ellipsis
 function addEllipsis() {
     const ellipsis = document.createElement("span");
     ellipsis.textContent = "...";
@@ -191,10 +194,13 @@ function addEllipsis() {
     pagination.append(ellipsis);
 }
 
+// Rebuilds the pagination bar based on the current page and the total number of pages.
 function renderPagination(totalPages) {
     pagination.replaceChildren();
+    // Creates the "Previous" button.
     pagination.append(createPaginationButton("Previous", currentPage - 1, currentPage === 1));
 
+    // Creates pagination buttons based on the algorithm below.
     const pages = new Set([1, totalPages, currentPage - 1, currentPage, currentPage + 1]);
     const visiblePages = [...pages]
         .filter(function (page) {
@@ -215,9 +221,10 @@ function renderPagination(totalPages) {
         previousPage = page;
     });
 
+    // Creates the "Next" button.
     pagination.append(createPaginationButton("Next", currentPage + 1, currentPage === totalPages));
 }
-
+// Updates every column header so the user can see which column is currently being sorted and in which direction.
 function updateSortButtons() {
     sortButtons.forEach(function (button) {
         const column = button.closest("th");
@@ -234,27 +241,42 @@ function updateSortButtons() {
     });
 }
 
+// Coordinates the entire Sales History page.
 function renderSalesHistory() {
     const filteredSales = sortSales(getFilteredSales());
-    const totalPages = Math.max(1, Math.ceil(filteredSales.length / PAGE_SIZE));
+    const totalSales = filteredSales.length;
+
+    const totalPages = Math.max(1, Math.ceil(totalSales / PAGE_SIZE));
     currentPage = Math.min(currentPage, totalPages);
 
-    const firstRecord = (currentPage - 1) * PAGE_SIZE;
-    const pageSales = filteredSales.slice(firstRecord, firstRecord + PAGE_SIZE);
+    const startIndex = (currentPage - 1) * PAGE_SIZE;
+    const pageSales = filteredSales.slice(startIndex, startIndex + PAGE_SIZE);
 
     renderRows(pageSales);
-    emptyMessage.hidden = filteredSales.length !== 0;
-    footer.hidden = filteredSales.length === 0;
 
-    if (filteredSales.length > 0) {
-        const lastRecord = firstRecord + pageSales.length;
-        summary.textContent = `Showing ${firstRecord + 1}-${lastRecord} of ${filteredSales.length} sales`;
+    const hasSales = totalSales > 0;
+    emptyMessage.hidden = hasSales;
+    footer.hidden = !hasSales;
+
+    if (hasSales) {
+        const endIndex = startIndex + pageSales.length;
+
+        summary.textContent =
+            `Showing ${startIndex + 1}-${endIndex} of ${totalSales} sales`;
+
         renderPagination(totalPages);
     }
 
     updateSortButtons();
 }
 
+// Refresh sales history
+function refreshSalesHistory() {
+    currentPage = 1;
+    renderSalesHistory();
+}
+
+// Communication with the backend
 async function loadSales() {
     showState("Loading sales...");
 
@@ -294,25 +316,19 @@ async function loadSales() {
     }
 }
 
+// Prevents the browser from submitting the form and reloading the page.
 filtersForm.addEventListener("submit", function (event) {
     event.preventDefault();
 });
 
-searchInput.addEventListener("input", function () {
-    currentPage = 1;
-    renderSalesHistory();
-});
+// Whenever the user types in the search box, or updates the date, return to page 1 and redraw the table.
+searchInput.addEventListener("input", refreshSalesHistory);
 
-dateFromInput.addEventListener("change", function () {
-    currentPage = 1;
-    renderSalesHistory();
-});
+dateFromInput.addEventListener("change", refreshSalesHistory);
 
-dateToInput.addEventListener("change", function () {
-    currentPage = 1;
-    renderSalesHistory();
-});
+dateToInput.addEventListener("change", refreshSalesHistory);
 
+// When the user clicks a column header, update the sorting configuration and redraw the table.
 sortButtons.forEach(function (button) {
     button.addEventListener("click", function () {
         const selectedKey = button.dataset.sortKey;
@@ -325,11 +341,11 @@ sortButtons.forEach(function (button) {
             sortDirection = "ascending";
         }
 
-        currentPage = 1;
-        renderSalesHistory();
+        refreshSalesHistory();
     });
 });
 
+// Logout configuration
 logoutButton.addEventListener("click", function () {
     localStorage.clear();
     window.location.href = "/";
