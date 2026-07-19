@@ -2,6 +2,7 @@ using Backend.Models;
 using Backend.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace Backend.Controllers;
 
@@ -24,18 +25,24 @@ public class SalesController : ControllerBase
     {
         _salesService = salesService;
     }
-
-    // GET /sales
-    // Returns all sales.
+    
+    // User is an object that ASP.NET Core automatically creates after successfully authenticating a request.
+    // It represents the currently logged-in user.
+    
     [HttpGet]
     public ActionResult<List<Sale>> GetAllSales()
     {
-        var sales = _salesService.GetAll();
-        return Ok(sales);
+        string? role = User.FindFirst(ClaimTypes.Role)?.Value;
+        string? fullName = User.FindFirst("FullName")?.Value;
+
+        if (role == "Administrator")
+        {
+            return Ok(_salesService.GetAll());
+        }
+
+        return Ok(_salesService.GetByAgent(fullName!));
     }
 
-    // GET /sales/{id}
-    // Returns one sale by its ID.
     [HttpGet("{id}")]
     public ActionResult<Sale> GetSaleById(int id)
     {
@@ -51,8 +58,6 @@ public class SalesController : ControllerBase
         return Ok(sale);
     }
 
-    // POST /sales
-    // Adds a new sale.
     [HttpPost]
     public ActionResult AddSale(Sale sale)
     {

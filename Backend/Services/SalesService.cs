@@ -54,6 +54,52 @@ public class SalesService
 
         return sales;
     }
+
+        public List<Sale> GetByAgent(string agent)
+    {
+        var sales = new List<Sale>();
+
+        var connectionString = _configuration.GetConnectionString("DefaultConnection");
+
+        using var connection = new NpgsqlConnection(connectionString);
+
+        connection.Open();
+
+        string sql = @"SELECT
+                        ""TicketId"",
+                        ""OrderId"",
+                        ""InitialAmount"",
+                        ""FinalAmount"",
+                        ""Comment"",
+                        ""Agent"",
+                        ""CreatedAt""
+                    FROM ""Sales""
+                    WHERE ""Agent"" = @Agent;";
+
+        using var command = new NpgsqlCommand(sql, connection);
+
+        command.Parameters.AddWithValue("@Agent", agent);
+
+        using var reader = command.ExecuteReader();
+
+        while (reader.Read())
+        {
+            Sale sale = new Sale
+            {
+                TicketId = reader.GetInt32(0),
+                OrderId = reader.GetInt32(1),
+                InitialAmount = reader.GetDecimal(2),
+                FinalAmount = reader.GetDecimal(3),
+                Comment = reader.GetString(4),
+                Agent = reader.GetString(5),
+                CreatedAt = reader.GetDateTime(6)
+            };
+
+            sales.Add(sale);
+        }
+
+        return sales;
+    }
     
     public Sale? GetById(int id)
     {

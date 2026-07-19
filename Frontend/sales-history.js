@@ -31,7 +31,9 @@ let sortDirection = "descending";
 
 welcomeMessage.textContent = `Welcome, ${fullName}!`;
 
-if (role !== "Administrator") {
+const allowedRoles = ["Administrator", "Agent"];
+
+if (!allowedRoles.includes(role)) {
     productsMenu.style.display = "none";
 }
 

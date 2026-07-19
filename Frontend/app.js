@@ -24,8 +24,10 @@ const salesHistoryTab = document.getElementById("salesHistory");
 welcomeMessage.textContent = `Welcome, ${fullName}!`;
 
 // Hide the products menu for users who are not administrators.
-if (role !== "Administrator") {
-    salesHistoryTab.style.display = "none";
+const allowedRoles = ["Administrator", "Agent"];
+
+if (!allowedRoles.includes(role)) {
+    productsMenu.style.display = "none";
 }
 
 form.addEventListener("submit", async function (event) {
